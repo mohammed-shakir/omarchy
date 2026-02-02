@@ -56,6 +56,10 @@
   margin-right: 18px;
 }
 
+#idle_inhibitor {
+  margin-right: 17px;
+}
+
 tooltip {
   padding: 2px;
 }
