@@ -10,10 +10,11 @@
     "custom/update",
     "custom/voxtype",
     "custom/screenrecording-indicator",
+    "custom/idle-indicator",
+    "custom/notification-silencing-indicator",
   ],
   "modules-right": [
     "group/tray-expander",
-    "idle_inhibitor",
     "bluetooth",
     "network",
     "pulseaudio",
@@ -68,7 +69,6 @@
   },
   "clock": {
     "format": "{:%H:%M • %a %d %b}",
-
     "tooltip": true,
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "smooth-scrolling-threshold": 2.0,
@@ -89,15 +89,6 @@
       "on-scroll-up": "shift_up",
       "on-scroll-down": "shift_down",
     },
-  },
-  "idle_inhibitor": {
-    "format": "{icon}",
-    "format-icons": {
-      "activated": "",
-      "deactivated": "",
-    },
-    "tooltip-format-activated": "Idle inhibit: ON",
-    "tooltip-format-deactivated": "Idle inhibit: OFF",
   },
   "network": {
     "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
@@ -175,6 +166,18 @@
     "signal": 8,
     "return-type": "json",
   },
+  "custom/idle-indicator": {
+    "on-click": "omarchy-toggle-idle",
+    "exec": "$OMARCHY_PATH/default/waybar/indicators/idle.sh",
+    "signal": 9,
+    "return-type": "json",
+  },
+  "custom/notification-silencing-indicator": {
+    "on-click": "omarchy-toggle-notification-silencing",
+    "exec": "$OMARCHY_PATH/default/waybar/indicators/notification-silencing.sh",
+    "signal": 10,
+    "return-type": "json",
+  },
   "custom/voxtype": {
     "exec": "omarchy-voxtype-status",
     "return-type": "json",
@@ -187,18 +190,6 @@
     "tooltip": true,
     "on-click-right": "omarchy-voxtype-config",
     "on-click": "omarchy-voxtype-model",
-  },
-  "custom/idle-indicator": {
-    "on-click": "omarchy-toggle-idle",
-    "exec": "$OMARCHY_PATH/default/waybar/indicators/idle.sh",
-    "signal": 9,
-    "return-type": "json"
-  },
-  "custom/notification-silencing-indicator": {
-    "on-click": "omarchy-toggle-notification-silencing",
-    "exec": "$OMARCHY_PATH/default/waybar/indicators/notification-silencing.sh",
-    "signal": 10,
-    "return-type": "json"
   },
   "tray": {
     "icon-size": 12,
